@@ -321,6 +321,14 @@ RDM_SORT_OPTIONS = {
     "mostdownloaded": dict(
         title=_("Most downloaded"), fields=["-stats.all_versions.unique_downloads"]
     ),
+    "newestactivity": dict(
+        title=_("Newest activity"),
+        fields=["-last_activity_at"],
+    ),
+    "oldestactivity": dict(
+        title=_("Oldest activity"),
+        fields=["last_activity_at"],
+    ),
 }
 """Definitions of available record sort options.
 
@@ -754,3 +762,6 @@ RDM_RECORDS_RESTRICTION_GRACE_PERIOD = timedelta(days=30)
 
 RDM_RECORDS_ALLOW_RESTRICTION_AFTER_GRACE_PERIOD = False
 """Whether record access restriction is allowed after the grace period or not."""
+
+RDM_RECORDS_REQUIRE_SECRET_LINKS_EXPIRATION = False
+"""Whether share access links require an expiration date to be set or not."""
